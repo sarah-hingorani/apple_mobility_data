@@ -15,7 +15,7 @@ library("dplyr")
 # were already subsetted.
 
 # load in the dataset from the previous script
-input_file_name <- "output/applemobilitytrends-2021-09-18_California.csv"
+input_file_name <- "output/applemobilitytrends-2021-09-18_New York.csv"
 state_data <- read.csv(input_file_name)
 
 # starting off with dplyr chains
@@ -27,4 +27,4 @@ count_cities_counties_by_type <- state_data %>%
 
 # write out the result of the dplyr chain
 write.csv(count_cities_counties_by_type,
-          "output/california_cities_counties_counts.csv")
+          "output/new_york_cities_counties_counts.csv")
