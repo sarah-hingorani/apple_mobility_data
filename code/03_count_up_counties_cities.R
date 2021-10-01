@@ -15,7 +15,8 @@ library("dplyr")
 # were already subsetted.
 
 # load in the dataset from the previous script
-input_file_name <- "output/applemobilitytrends-2021-09-18_New York.csv"
+input_file_name <- paste0("output/subsetted_states/",
+                    "applemobilitytrends-2021-09-18_Texas.csv")
 state_data <- read.csv(input_file_name)
 
 # starting off with dplyr chains
