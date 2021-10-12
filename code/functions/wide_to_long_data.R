@@ -7,6 +7,8 @@
 
 convert_mobility_data_wide_to_long <- function(input_file_name) {
 
+# load dplyr package
+library("dplyr")
 
 # load subsetted data files
 new_york_data <- readr::read_csv(paste0("output/subsetted_states/",
