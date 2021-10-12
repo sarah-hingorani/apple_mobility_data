@@ -5,7 +5,7 @@
 # svhingorani2@dons.usfca.edu
 # September 29, 2021
 
-convert_mobility_data_wide_to_long <- function(input_file_name) {
+convert_data_wide_to_long <- function(input_file_name) {
 
 # load dplyr package
 library("dplyr")
