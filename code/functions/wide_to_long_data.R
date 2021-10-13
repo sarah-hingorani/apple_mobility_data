@@ -5,18 +5,24 @@
 # svhingorani2@dons.usfca.edu
 # September 29, 2021
 
-convert_data_wide_to_long <- function(input_file_name) {
+convert_data_wide_to_long <- function(input_file_name, state_to_subset) {
 
-# load dplyr package
+# load packages
 library("dplyr")
+library("tidyr")
+library("readr")
 
 # load subsetted data files
 new_york_data <- readr::read_csv(paste0("output/subsetted_states/",
                                  "applemobilitytrends-2021-09-18_New York.csv"))
 
+# ensure that spaces in between are replaced with a "_"
+state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
+
+
 # change from wide to long by using the tidyr function
 state_data_long <- tidyr::pivot_longer(data = "new_york_data",
-                                       cols = (startsWith("X2020")),
+                                       cols = (starts_with("X2020")),
                                        names_to = "date",
                                        values_to = "relative_mobility")
 
