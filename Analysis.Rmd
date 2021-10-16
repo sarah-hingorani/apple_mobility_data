@@ -62,7 +62,7 @@ state_subset <- subset_mobility_data_to_state(
 ```{r make-subset-long}
  # convert the subsetted state data from wide to long format
 long_subset <- convert_mobility_data_wide_to_long(
-  file_name_in = paste0("output/"
+  file_name_in = paste0("output/subsetted_states_wide/",
                  core_name,
                  "_",
                  state_no_spaces,
@@ -73,21 +73,66 @@ long_subset <- convert_mobility_data_wide_to_long(
 # tally up the numbers of cities and counties in the state that have mobility
 # data available
 tallied_subset <- subset_data_count_city_county
-  file_name_in = paste0("output/"
+  file_name_in = paste0("output/subsetted_states_wide/",
                  core_name,
                  "_",
                  state_no_spaces,
-                 ".csv"))
+                 ".csv")
 ```
-
 
 ## Figures
 ```{r plot-tallied}
 # create a grouped barplot of the tallied data to include in the knitted
 # document, and save that figure to the output/figures directory as a png
-
+tallied_plot <- ggplot(data = tallied_subset,
+                       aes(x = geo_type,
+                           y = n,
+                           fill = transportation_type)) +
+  geom_col(position = position_dodge()) +
+  labs(title = paste("Number of cities and/or counties in",
+                     state_to_analyze,
+                     "with mobility data"),
+       x = "Type of area",
+       y = "Number of areas") +
+  scale_fill_discrete(name = "Transportation Type",
+                      labels = c("Driving", "Transit", "Walking"))
+ggsave(plot = tallied_plot,
+       filename = paste0("output/figures/",
+                         core_name,
+                         "_",
+                         state_no_spaces,
+                         "_tallied_plot.png"))
+tallied_plot
 ```
- 
+
+```{rplot-time-series}
+# produce a line plot of relative driving mobility across the state with date
+# on the x axis and mean relative mobility on the y axis
+timeseries_plot <- long_subset %>%
+  filter(transportation_type == "driving") %>%
+  group_by(date) %>%
+  summarize(mean_mobility = mean(relative_mobility)) %>%
+  ggplot(aes(x = lubridate::ymd(date),
+             y = mean_mobility)) +
+  geom_line() +
+  labs(title = paste("Statewide mean relative mobility driving levels in",
+                     state_to_analyze,
+                     "during COVID"),
+       x = "Date",
+       y = "Mean relative mobility")
+ggsave(plot = timeseries_plot,
+       filename = paste0("output/figures/",
+                         core_name,
+                         "_",
+                         state_no_spaces,
+                         "_driving_timeseries_plot.png"))
+timeseries_plot
+```
+
+## Session Info
+```{r session-info}
+devtools::session_info()
+```
 
 
 ## Sources Cited
