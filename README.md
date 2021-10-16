@@ -17,3 +17,4 @@ It currently uses dplyr to work with some oof the tabular data. Eventually, it w
 worked to refactor the code to be more general and to allow for my state to be
 subset from the larger file.
 * 2021-09-27: Added second script to use dplyr to tally up the count of cities and counties in a given state that have data from the different transportation types, turned code into a function. 
+* 2021-10-11: Add Rmd to drive entire analysis.
