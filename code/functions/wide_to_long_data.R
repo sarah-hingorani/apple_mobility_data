@@ -28,7 +28,7 @@ state_data_long <- tidyr::pivot_longer(data = "new_york_data",
 
 # save the long data set as a csv in the output directory
 readr::write_csv(state_data_long, file = paste0("output/",
-                                                 "subsetted_states/",
+                                                 "subsetted_states_long/",
                                                  tools::file_path_sans_ext(
                                                  basename(input_file_name)),
                                                  "_",
