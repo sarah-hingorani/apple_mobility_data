@@ -13,7 +13,8 @@ library("tidyr")
 library("readr")
 
 # load subsetted data files
-new_york_data <- readr::read_csv(paste0("output/subsetted_states_wide/",
+new_york_data <- readr::read_csv(paste0("output/",
+                                "subsetted_states_wide/",
                                  "applemobilitytrends-2021-09-18_New York.csv"))
 
 # ensure that spaces in between are replaced with a "_"
