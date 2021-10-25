@@ -10,24 +10,10 @@
 # load functions
 source("code/functions/subset_mobility_data_to_state.R")
 
-# make a vector to pick a state to subset
-pick_a_state_to_subset <- c("New York",
-                                   "Florida",
-                                   "Maryland",
-                                   "Illinois",
-                                   "Georgia",
-                                   "Hawaii",
-                                   "Texas")
-
 # create a for loop to output files with given state names
-for (state_to_subset in c(pick_a_state_to_subset)) {
-  x <- state_to_subset
-  print(paste("The state chosen is", state_to_subset))
-
-  state_to_subset <- subset_mobility_data_to_state(
+for (state in c("New York", "Florida", "Maryland", "Illinois", "Georgia",
+                "Hawaii", "Texas")) {
+  subset_mobility_data_to_state(
     input_file_name = "data/raw_data/applemobilitytrends-2021-09-18.csv",
-    state_to_subset = x)
-  print(paste(x, "Subsetting data..."))
-  print(paste(x, "Data is subsetted."))
-  print("--")
+    state_to_subset <- state)
 }
