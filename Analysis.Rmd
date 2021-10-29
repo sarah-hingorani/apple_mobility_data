@@ -52,8 +52,8 @@ The goal will be to create a subset to a particular state, tally up the number o
 The state that this document will analyze is 'r state_to_analyze'.
 
 ## Data Processing
- # subset out to chosen state using the variables set above
-```{r subset-state}
+```{r subset-state} 
+# subset out to chosen state using the variables set above
 state_subset <- subset_mobility_data_to_state(
   input_file_name = global_file_to_process,
   state_to_subset = state_to_analyze)
