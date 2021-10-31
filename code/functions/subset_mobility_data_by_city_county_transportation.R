@@ -14,6 +14,9 @@ library("dplyr")
 # that is subsetted
 subset_by_city_county <- function(input_file_name, state_to_subset) {
 
+  input_file_name = "data/raw_data/applemobilitytrends-2021-09-25.csv"
+  state_to_subset = "New York"
+
   # read in the complete csv file
   all_covid_data <- readr::read_csv(input_file_name)
 
