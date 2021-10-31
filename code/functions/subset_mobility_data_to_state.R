@@ -14,15 +14,21 @@ library("dplyr")
 # that is subsetted
 subset_mobility_data_to_state <- function(input_file_name,
                                           state_to_subset) {
-  # read in the complete csv file
+
+ input_file_name = "data/raw_data/applemobilitytrends-2021-09-18.csv"
+ state_to_subset = "New York"
+
+  # make sure that there are no spaces between names if applicable
+  state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
+
+   # read in the complete csv file
   all_covid_data <- readr::read_csv(input_file_name)
 
   # subset the dataset to only include rows where the sub.region column has
   # the state name in it but we want all columns.
   state_subset <- all_covid_data %>%
-    dplyr::filter('sub-region' == state_to_subset)
+    dplyr::filter('sub.region' == state_to_subset)
 
-  state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
 
  # check that the subsetted data actually has data in it
   if (nrow(state_subset) == 0) {
