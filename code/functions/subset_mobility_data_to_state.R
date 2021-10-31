@@ -29,7 +29,6 @@ subset_mobility_data_to_state <- function(input_file_name,
   state_subset <- all_covid_data %>%
     dplyr::filter('sub.region' == state_to_subset)
 
-
  # check that the subsetted data actually has data in it
   if (nrow(state_subset) == 0) {
     stop("ERROR, no rows matching given state name. Is there a typo?")
