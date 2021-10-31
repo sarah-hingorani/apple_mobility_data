@@ -13,16 +13,16 @@ library("tidyr")
 library("readr")
 
 # load subsetted data files
-new_york_data <- readr::read_csv(paste0("output/",
-                                        "subsetted_states_wide/",
-                      "applemobilitytrends-2021-09-18_New York_New York.csv"))
+new_york <- readr::read_csv(paste0("output/subsetted_states_wide/",
+                                  "applemobilitytrends-2021-09-18_New_York.csv"
+                          ))
 
 # ensure that spaces in between are replaced with a "_"
 state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
 
 
 # change from wide to long by using the tidyr function
-state_data_long <- tidyr::pivot_longer(data = "new_york_data",
+state_data_long <- tidyr::pivot_longer(data = "new_york",
                                        cols = (starts_with("X2020")),
                                        names_to = "date",
                                        values_to = "relative_mobility")
