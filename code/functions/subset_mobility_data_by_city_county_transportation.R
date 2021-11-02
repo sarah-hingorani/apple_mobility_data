@@ -23,7 +23,7 @@ subset_by_city_county <- function(input_file_name, state_to_subset) {
   # subset the dataset to only include rows where the sub.region column has
   # the state name in it but we want all columns.
   state_data <- all_covid_data %>%
-    dplyr::filter("sub.region" == state_to_subset)
+    dplyr::filter("sub-region" == state_to_subset)
 
   # check that the subsetted data actually has data in it
   if (nrow(state_data) == 0) {
