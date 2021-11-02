@@ -28,9 +28,8 @@ for (tallied_state in tally_state_of_choice) {
 # were already subsetted.
 
 # load in the dataset from the previous script
-input_file_name <- paste0("output/",
-                           "subsetted_states/",
-                           "applemobilitytrends-2021-09-18_New York.csv")
+input_file_name <- paste0("output/subsetted_states_wide/",
+                          "applemobilitytrends-2021-09-18_New_York.csv")
 state_data <- read.csv(input_file_name)
 
 # write out the result of the dplyr chain
