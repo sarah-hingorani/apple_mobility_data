@@ -31,17 +31,17 @@ subset_by_city_county <- function(input_file_name, state_to_subset) {
     tally()
 
   # check that the subsetted data actually has data in it
-  if (nrow(state_data) == 0) {
+  if (nrow(tallied_data) == 0) {
     stop("ERROR, no rows matching given state name. Is there a typo?")
   }
 
   # save the state data to a new csv file in the output directory
-  readr::write_csv(state_data, file =  paste0("output/",
+  readr::write_csv(tallied_data, file =  paste0("output/",
                                               "subsetted_states_tallied/",
                                        tools::file_path_sans_ext(
                                          basename(input_file_name)),
                                        "_",
                                        state_no_spaces,
                                        ".csv"))
-  return(state_data)
+  return(count_cities_counties_by_type)
 }
