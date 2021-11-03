@@ -14,7 +14,7 @@ library("readr")
 
 # load subsetted data files
 new_york <- readr::read_csv(paste0("output/subsetted_states_wide/",
-                                   "applemobilitytrends-2021-09-25_New York",
+                                   "applemobilitytrends-2021-09-25_New_York",
                                    ".csv"))
 
 # ensure that spaces in between are replaced with a "_"
