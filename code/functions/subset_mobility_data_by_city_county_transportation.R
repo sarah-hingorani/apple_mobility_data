@@ -17,13 +17,18 @@ subset_by_city_county <- function(input_file_name, state_to_subset) {
   input_file_name = "data/raw_data/applemobilitytrends-2021-09-25.csv"
   state_to_subset = "New York"
 
-  # read in the complete csv file
-  all_covid_data <- readr::read_csv(input_file_name)
+  # read in the subsetted csv file
+  tallied_data <- readr::read_csv(input_file_name)
+
+  # make sure that there are no spaces between names if applicable
+  state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
 
   # subset the dataset to only include rows where the sub.region column has
   # the state name in it but we want all columns.
-  state_data <- all_covid_data %>%
-    dplyr::filter("sub-region" == state_to_subset)
+  count_cities_counties_by_type <- tallied_data %>%
+    select(geo_type, region, transportation_type) %>%
+    group_by(geo_type, transportation_type) %>%
+    tally()
 
   # check that the subsetted data actually has data in it
   if (nrow(state_data) == 0) {
@@ -31,7 +36,8 @@ subset_by_city_county <- function(input_file_name, state_to_subset) {
   }
 
   # save the state data to a new csv file in the output directory
-  readr::write_csv(state_data, file =  paste0("output/subsetted_states_wide/",
+  readr::write_csv(state_data, file =  paste0("output/",
+                                              "subsetted_states_tallied/",
                                        tools::file_path_sans_ext(
                                          basename(input_file_name)),
                                        "_",
