@@ -7,6 +7,8 @@
 
 convert_data_wide_to_long <- function(input_file_name, state_to_subset) {
 
+  state_to_subset = "New York"
+
 # load packages
 library("dplyr")
 library("tidyr")
