@@ -61,7 +61,7 @@ state_subset <- subset_mobility_data_to_state(
 
 ```{r make-subset-long}
  # convert the subsetted state data from wide to long format
-long_subset <- convert_mobility_data_wide_to_long(
+long_subset <- convert_data_wide_to_long(
   file_name_in = paste0("output/subsetted_states_wide/",
                  core_name,
                  "_",
@@ -72,7 +72,7 @@ long_subset <- convert_mobility_data_wide_to_long(
 ```{r tallied-subset}
 # tally up the numbers of cities and counties in the state that have mobility
 # data available
-tallied_subset <- subset_data_count_city_county
+tallied_subset <- subset_by_city_county
   file_name_in = paste0("output/subsetted_states_wide/",
                  core_name,
                  "_",
