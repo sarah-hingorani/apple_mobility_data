@@ -14,8 +14,8 @@ library("dplyr")
 # that is subsetted
 subset_by_city_county <- function(input_file_name, state_to_subset) {
 
-  input_file_name = "data/raw_data/applemobilitytrends-2021-09-25.csv"
-  state_to_subset = "New York"
+  input_file_name <- "data/raw_data/applemobilitytrends-2021-09-25.csv"
+  state_to_subset <- "New York"
 
   # read in the subsetted csv file
   tallied_data <- readr::read_csv(input_file_name)
@@ -41,7 +41,7 @@ subset_by_city_county <- function(input_file_name, state_to_subset) {
                                        tools::file_path_sans_ext(
                                          basename(input_file_name)),
                                        "_",
-                                       state_to_subset,
+                                       state_no_spaces,
                                        ".csv"))
   return(state_data)
 }
