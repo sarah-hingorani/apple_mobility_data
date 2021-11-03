@@ -36,4 +36,5 @@ readr::write_csv(state_data_long, file = paste0("output/",
                                                  "wide_to_long",
                                                  state_no_spaces,
                                                  ".csv"))
+return(state_data_long)
 }
