@@ -32,6 +32,3 @@ input_file_name <- paste0("output/subsetted_states_wide/",
                           "applemobilitytrends-2021-09-18_New_York.csv")
 state_data <- read.csv(input_file_name)
 
-# write out the result of the dplyr chain
-write.csv(count_cities_counties_by_type,
-          "output/new_york_cities_counties_counts.csv")
