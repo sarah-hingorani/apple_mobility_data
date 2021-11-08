@@ -14,8 +14,9 @@ library("dplyr")
 # that is subsetted
 subset_by_city_county <- function(input_file_name, state_to_subset) {
 
-  input_file_name <- "data/raw_data/applemobilitytrends-2021-09-25.csv"
-  state_to_subset <- "New York"
+  # For your input_file_name value, type out your desired dataset in the
+  # RStudio console. The same applies for the state you are interested in for
+  # your state_to_subset value.
 
   # read in the subsetted csv file
   tallied_data <- readr::read_csv(input_file_name)

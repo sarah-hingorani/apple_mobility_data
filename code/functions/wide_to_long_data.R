@@ -7,8 +7,8 @@
 
 convert_data_wide_to_long <- function(input_file_name) {
 
-input_file_name <- paste0("output/subsetted_states_wide/",
-                          "applemobilitytrends-2021-09-18_New_York.csv")
+  # For your input_file_name value, type out your desired dataset in the
+  # RStudio console.
 
 # load packages
 library("dplyr")

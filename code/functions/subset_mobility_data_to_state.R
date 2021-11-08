@@ -15,8 +15,9 @@ library("dplyr")
 subset_mobility_data_to_state <- function(input_file_name,
                                           state_to_subset) {
 
- input_file_name <- "data/raw_data/applemobilitytrends-2021-09-18.csv"
- state_to_subset <- "New York"
+  # For your input_file_name value, type out your desired dataset in the
+  # RStudio console. The same applies for the state you are interested in for
+  # your state_to_subset value.
 
   # make sure that there are no spaces between names if applicable
   state_no_spaces <- gsub(state_to_subset, pattern = " ", replacement = "_")
