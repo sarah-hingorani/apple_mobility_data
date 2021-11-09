@@ -106,7 +106,7 @@ ggsave(plot = tallied_plot,
 tallied_plot
 ```
 
-```{rplot-time-series}
+```{r plot-time-series}
 # produce a line plot of relative driving mobility across the state with date
 # on the x axis and mean relative mobility on the y axis
 timeseries_plot <- long_subset %>%
