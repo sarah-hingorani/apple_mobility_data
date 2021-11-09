@@ -130,6 +130,24 @@ ggsave(plot = timeseries_plot,
 timeseries_plot
 ```
 
+```{r plot-}
+# make a histogram of relative transit mobility data within the state. put the
+# date on the x axis and the transit mobility on the y axis.
+
+histogram_plot <- long_subset 
+  
+
+ geom_histogram() 
+  
+ggsave(plot = histogram_plot,
+       filename = paste0("output/figures/",
+                         core_name,
+                         "_",
+                         state_no_spaces,
+                         "_histogram_plot.png"))
+```
+
+
 ## Session Info
 ```{r session-info}
 devtools::session_info()
