@@ -36,7 +36,7 @@ subset_mobility_data_to_state <- function(input_file_name,
   }
 
    # save the state data to a new csv file in the output directory
-  readr::write_csv(state_subset, file = paste0("output/subsetted_states_wide",
+  readr::write_csv(state_subset, file = paste0("output/subsetted_states_wide/",
                                        tools::file_path_sans_ext(
                                        basename(input_file_name)),
                                       "_",
