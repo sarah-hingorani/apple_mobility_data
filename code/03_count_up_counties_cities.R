@@ -31,4 +31,3 @@ for (tallied_state in tally_state_of_choice) {
 input_file_name <- paste0("output/subsetted_states_wide/",
                           "applemobilitytrends-2021-09-18_New_York.csv")
 state_data <- read.csv(input_file_name)
-
