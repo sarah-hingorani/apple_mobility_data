@@ -131,29 +131,27 @@ timeseries_plot
 ```
 
 ```{r plot-time-series-transit}
-# make a histogram of relative transit mobility data within the state. put the
-# date on the x axis and the relative mobility on the y axis.
-histogram_plot <- long_subset %>%
+# make a step-function of relative transit mobility data within the state. put 
+# the date on the x axis and the relative mobility on the y axis.
+step_plot <- long_subset %>%
   filter(transportation_type == "transit") %>%
   group_by(date) %>%
-  summarize(mean_mobility_transit = mean(relative_mobility)) %>%
+  summarize(mean_mobility = mean(relative_mobility)) %>%
   ggplot(aes(x = lubridate::ymd(date), 
-             y = relative_mobility)) +
-  geom_histogram(col = "black", 
-                 fill = "turquoise2", 
-                 binwidth = 15,
-                 alpha = 0.9) +
-  labs(title = paste("Realtive mobility by transit in", state_to_analyze,
+             y = mean_mobility)) +
+  geom_step(direction = "hv") +
+  labs(title = paste("Statewide mean relative mobility transit levels in",
+                     state_to_analyze,
                      "during COVID"),
-                      xlab = "Date",
-                      ylab = "Relative mobility")
-ggsave(plot = histogram_plot,
+                      x = "Date",
+                      y = "Mean relative mobility")
+ggsave(plot = step_plot,
        filename = paste0("output/figures/",
                          core_name,
                          "_",
                          state_no_spaces,
-                         "_histogram_plot.png"))
-histogram_plot
+                         "_step_plot.png"))
+step_plot
 ```
 
 
