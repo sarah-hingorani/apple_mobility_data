@@ -131,13 +131,14 @@ timeseries_plot
 ```
 
 ```{r plot-time-series-transit}
-# make a step-function of relative transit mobility data within the state. put 
-# the date on the x axis and the relative mobility on the y axis.
+# Make a step-function of relative transit mobility data within the state.
+# Put the date on the x axis and the relative mobility on the y axis. Make sure
+# that the graph is horizontal then vertical (hv). 
 step_plot <- long_subset %>%
   filter(transportation_type == "transit") %>%
   group_by(date) %>%
   summarize(mean_mobility = mean(relative_mobility)) %>%
-  ggplot(aes(x = lubridate::ymd(date), 
+  ggplot(aes(x = lubridate::ymd(date),
              y = mean_mobility)) +
   geom_step(direction = "hv") +
   labs(title = paste("Statewide mean relative mobility transit levels in",
