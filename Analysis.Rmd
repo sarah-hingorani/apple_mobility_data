@@ -133,7 +133,7 @@ timeseries_plot
 ```{r plot-time-series-transit}
 # Make a step-function of relative transit mobility data within the state.
 # Put the date on the x axis and the relative mobility on the y axis. Make sure
-# that the graph is horizontal then vertical (hv). 
+# that the graph is horizontal then vertical (hv).
 step_plot <- long_subset %>%
   filter(transportation_type == "transit") %>%
   group_by(date) %>%
