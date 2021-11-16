@@ -11,6 +11,14 @@
 # October 25, 2021
 # svhingorani2@dons.usfca.edu
 
+if [ $# -eq 0 ]
+then
+  echo "To run this script, supply two arguments:"
+  echo "The first is the name of the state to be analyzed."
+  echo "The sceond is the path to the mobility data csv file."
+  exit 1
+fi
+
 Rscript -e "rmarkdown::render('Analysis.Rmd',\
             params = list(state = '$1',\
             data = '$2'))"
