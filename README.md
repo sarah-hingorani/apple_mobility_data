@@ -12,6 +12,7 @@ It currently uses dplyr to work with some oof the tabular data. Eventually, it w
 
 ### Change Log
 
+* 2021-10-25: Parameterize Rmd and add bash script to drive knitting.
 * 2021-10-11: Add Rmd to drive entire analysis.
 * 2021-09-27: Added second script to use dplyr to tally up the count of cities and counties in a given state that have data from the different transportation types, turned code into a function. 
 * 2021-09-26: Initialized git repository for the project and committed all files into that repository.
