@@ -45,11 +45,11 @@ source("code/functions/subset_mobility_data_by_city_county_transportation.R")
 
 ## Background and Objectives
 
-This rmarkdown file will use the 'ggplot2' [@ggplot2] and 'dplyr' [@dplyr] packages to analyze the Apple maps mobility data from the time before the COVID-19 pandemic through the initial shutdowns and the continuing changes over the course of the year.
+This rmarkdown file will use the `ggplot2` [@ggplot2] and `dplyr` [@dplyr] packages to analyze the Apple maps mobility data from the time before the COVID-19 pandemic through the initial shutdowns and the continuing changes over the course of the year.
 
 The goal will be to create a subset to a particular state, tally up the number of cities and counties in that state with mobility data, and then to make several plots to visualize those data subsets.
 
-The state that this document will analyze is 'r state_to_analyze'.
+The state that this document will analyze is `r state_to_analyze`.
 
 ## Data Processing
 ```{r subset-state} 
