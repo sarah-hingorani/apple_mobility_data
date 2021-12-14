@@ -34,4 +34,4 @@ then
 fi
 
 # Tally the number of sequences, sorting them from largest to smallest
-bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort | uniq -c |sort -rn
+bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort | uniq -c |sort -rn >> ~/analyze_apple_covid_mobility_data/output/tally_countries_by_sequence_length.txt
