@@ -26,12 +26,11 @@ then
 	exit 1
 fi
 
-# Count the number of sequences in the entire file
+# Count the number of sequences in the entire file and save to output directory as a .txt file.
 if [ "$2" = 'ALL' ]
 then
-	echo "The total number of sequences is:"
-	bioawk -c fastx '{print $name $comment}' "$1" | wc -l
-fi
+	echo "The total number of sequences is:" bioawk -c fastx 'END{print NR}' "$1" 
+ fi
 
 # Tally the number of sequences, sorting them from largest to smallest
-bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort | uniq -c |sort -rn >> ~/apple_mobility_data/output/tally_countries_by_sequence_length.txt
+bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort | uniq -c | sort -nr
