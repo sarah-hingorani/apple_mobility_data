@@ -34,5 +34,4 @@ then
 fi
 
 # Tally the number of sequences, sorting them from largest to smallest
-	bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort |uniq -c | sort -nr
-fi
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | sort -rn
