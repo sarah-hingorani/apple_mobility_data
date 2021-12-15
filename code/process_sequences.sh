@@ -19,13 +19,6 @@ then
 	exit 1
 fi
 
-# Make sure that there is only one argument being used
-if [ $# -gt 1 ]
-then
-	echo "Only one argument is needed."
-	exit 1
-fi
-
 # Count the number of sequences in the entire file and save to output directory as a .txt file.
 if [ "$2" = 'ALL' ]
 then
