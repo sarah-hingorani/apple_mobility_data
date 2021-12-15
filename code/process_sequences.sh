@@ -19,11 +19,19 @@ then
 	exit 1
 fi
 
+# Make sure only one arugment is used
+if [ $# -gt 1 ]
+then
+	echo "Only one argument is needed."
+	exit 1
+fi
+
 # Count the number of sequences in the entire file.
 if [ "$2" = 'ALL' ]
 then
-	echo "The total number of sequences is:" bioawk -c fastx 'END{print NR}' "$1" | wc -l 
- fi
+	echo "The total number of sequences is:" 
+ bioawk -c fastx '{print $name $comment}' "$1" | wc -l
+fi
 
 # Tally the number of sequences, sorting them from largest to smallest
 bioawk -c fastx '{print $comment}' "$1" | awk '{split($0,x,"|");print x[21]}' | sort | uniq -c | sort -nr
