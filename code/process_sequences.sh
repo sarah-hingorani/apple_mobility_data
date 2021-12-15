@@ -19,10 +19,10 @@ then
 	exit 1
 fi
 
-# Count the number of sequences in the entire file and save to output directory as a .txt file.
+# Count the number of sequences in the entire file.
 if [ "$2" = 'ALL' ]
 then
-	echo "The total number of sequences is:" bioawk -c fastx 'END{print NR}' "$1" 
+	echo "The total number of sequences is:" bioawk -c fastx 'END{print NR}' "$1" | wc -l 
  fi
 
 # Tally the number of sequences, sorting them from largest to smallest
